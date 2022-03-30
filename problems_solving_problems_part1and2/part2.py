@@ -26,7 +26,7 @@ print(new_string)
 # 2.Capitalize letter
 # a.Write code that takes a string as input and capitalize the first letter of each word. Words will be separated by only one space. i.e. “hello world” should be outputted as “Hello World”
 #Define the string in a variable
-capital = 'hello world. how is your day going?'
+capital = 'wwww wwww wwww wwww wwww wwww'
 #Define the function
 def capitalize_first_letter(string):
     #define new variable to right to
@@ -37,18 +37,18 @@ def capitalize_first_letter(string):
     #for loop to iterate through string
     for letter in string:
         #if statement to catch first letter of the string
-        if string.index(letter) == 0:
+        if string.index(letter) == 0 and actual_count_of_number_in_string == 0:
             #add upper case letter to new string
             new_string += letter.upper()
             actual_count_of_number_in_string += 1
         #elif statement to find spaces and change variable n to next higher index
         elif letter == ' ':
-            n = string.index(letter) + 1
+            n = actual_count_of_number_in_string + 1
             #don't forget to add the space to the new string
             new_string += letter
             actual_count_of_number_in_string += 1
         #elif statement to catch letters after spaces whose index is equal to n
-        elif string.index(letter) == n and n == actual_count_of_number_in_string:
+        elif actual_count_of_number_in_string == n:
             #added upper case letter to new string
             new_string += letter.upper()
             actual_count_of_number_in_string += 1
