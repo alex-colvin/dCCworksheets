@@ -63,5 +63,70 @@ print (first_letters_capital)
 # 3.Palindrome
 # a.A word, phrase, or sequence that reads the same backward as forward i.e. madam
 # b.Write code that takes a user input and checks to see if it is a Palindrome and reports the result
+#Define the funtion
+def palindrome_check():
+    #get the users input
+    user_input = input("Do you know what a palindrome is? Prove it! Enter your palindrome :")
+    #since we just created a function to reverse a string (above) we'll use that
+    test_string = reverse_string(user_input)
+    if user_input.lower() == test_string.lower():
+        print(f"You really know your palindromes. {user_input.upper()} spelled backwards is {test_string.upper()}")
+    else:
+        print(f"{user_input} is not a palindrome.")
+palindrome_check()
 # 4.BONUS CHALLENGE: Compress a string of characters
 # a.For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
+#looks like we are just counting the letters that happen back to back and concatenating that letter with the number of times it occured
+#Define the string
+string = "aaabbbbbccccaacccbbbaaabbbaaa"
+#Define the function
+def compression_function (string):
+    #Create new string variable to write compressed segments to
+    new_string = ''
+    #string to hold multiple repeating letters
+    repeating_letter_string = ''
+    #string to convert repeating_letter_string to desired compression format
+    compress_format_string = ''
+    #string to check when letters change. Initially set to first letter
+    previous_letter = string[0]
+    #variable to count actual number in the string
+    actual_count_of_number_in_string = 1
+    #for loop to iterate through the string
+    for letter in string:
+        #if statement to check for repeating letters
+        if letter == previous_letter and len(string) != actual_count_of_number_in_string:
+            #add letter to repeating_letter_string variable
+            repeating_letter_string += letter
+            #add 1 to the actual_count variable
+            actual_count_of_number_in_string +=1
+        #elif the last letter int he string
+        elif len(string) == actual_count_of_number_in_string:
+            #add letter to repeating_letter_string variable
+            repeating_letter_string += letter
+            #format repeating letters into compression by getting the length of the string followed by the letter
+            compress_format_string = str(len(repeating_letter_string)) + repeating_letter_string[0]
+            #append to new string
+            new_string += compress_format_string
+        else: #when the letters change
+            #format repeating letters into compression by getting the length of the string followed by the letter
+            compress_format_string = str(len(repeating_letter_string)) + repeating_letter_string[0]
+            #append to new string
+            new_string += compress_format_string
+            #reset repeating letter string with new letter
+            repeating_letter_string = letter
+            #reset previous letter variable
+            previous_letter = letter
+            #add 1 to the actual_count variable
+            actual_count_of_number_in_string +=1
+    return new_string
+new_string = compression_function(string)
+print(new_string)
+
+        
+
+
+
+
+
+
+
