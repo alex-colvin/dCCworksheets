@@ -33,68 +33,33 @@ def capitalize_first_letter(string):
     new_string = ''
     #define new variable to catch letters after spaces
     n = ''
+    actual_count_of_number_in_string = 0
     #for loop to iterate through string
     for letter in string:
         #if statement to catch first letter of the string
         if string.index(letter) == 0:
             #add upper case letter to new string
             new_string += letter.upper()
+            actual_count_of_number_in_string += 1
         #elif statement to find spaces and change variable n to next higher index
         elif letter == ' ':
             n = string.index(letter) + 1
             #don't forget to add the space to the new string
             new_string += letter
+            actual_count_of_number_in_string += 1
         #elif statement to catch letters after spaces whose index is equal to n
-        elif string.index(letter) == n:
+        elif string.index(letter) == n and n == actual_count_of_number_in_string:
             #added upper case letter to new string
             new_string += letter.upper()
+            actual_count_of_number_in_string += 1
         #for all other letters
         else:
             #add letter to string
-            new_string += letter    
+            new_string += letter 
+            actual_count_of_number_in_string += 1   
     return new_string
 first_letters_capital = capitalize_first_letter(capital)
 print (first_letters_capital)
-#testing the indexes
-for letter in capital:
-    print(capital.index(letter))
-#Returns this.....
-# 0
-# 1
-# 2
-# 2
-# 4
-# 5
-# 6
-# 4
-# 8
-# 2
-# 10
-# 11
-# 5
-# 0
-# 4
-# 6
-# 5
-# 17
-# 18
-# 5
-# 4
-# 22
-# 8
-# 5
-# 10
-# 26
-# 20
-# 5
-# 29
-# 4
-# 17
-# 32
-# 29
-# 34
-
-
 # 3.Palindrome
 # a.A word, phrase, or sequence that reads the same backward as forward i.e. madam
 # b.Write code that takes a user input and checks to see if it is a Palindrome and reports the result
