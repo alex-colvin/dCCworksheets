@@ -14,6 +14,7 @@ def happy_number ():
     #list to keep track of numbers to prevent infinite loop
     seen_numbers = [int(user_input)]
     #while statement for when number hasn't been determined to be happy or sad yet
+    happy = ''
     while sum_of_squares != 1:
         #separates digits
         for digit in number:
@@ -21,16 +22,16 @@ def happy_number ():
             sum_of_squares += int(digit)**2
         #if sum is 1 number is happy
         if sum_of_squares == 1:
-            print(f'your number, {user_input}, is :)')
-            input('Press Enter to continue.')
+            happy = ':D'
+            print (happy)
             break
         else:
             #check the seen numbers list
             for seen_number in seen_numbers:
                 #if number repeats number is sad
                 if sum_of_squares == seen_number:
-                    print(f'your number, {user_input}, is :(')
-                    input('Press Enter to continue.')
+                    happy = ':('
+                    print (happy)
                     #to break the while loop
                     sum_of_squares = 1
                     break
@@ -43,6 +44,7 @@ def happy_number ():
             number = str(sum_of_squares)
             #reset sum of squares
             sum_of_squares = 0
+    return happy
 happy_number()
 # 2. Prime Numbers 
 # a. A prime number is a number that is only divisible by one and itself. 
@@ -61,8 +63,6 @@ def print_prime_number(number):
     #print prime number
     if not_prime == False:
         print (number)        
-for num in range(100):
-    print_prime_number(num)
 # 3. Fibonacci 
 # a. A series of numbers in which each number (Fibonacci number) is the sum of the two 
 # preceding numbers. The simplest is the series 1, 1, 2, 3, 5, 8, etc. 
@@ -95,4 +95,3 @@ def generate_Fibonacci ():
         else:
             break
         user_input = input('Would you like to keep going?')
-generate_Fibonacci()
