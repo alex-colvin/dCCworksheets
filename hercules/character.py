@@ -5,16 +5,17 @@ class Character:
         self.name = name
         self.stats = {"Health": health, "Attack Power": attack_power, "Attacks": attacks}
         self.attacks = [attacks]
-        self.attack = ''
+        self.attack_choice = ''
         self.defeat_ver = defeat
         self.is_enemy = is_enemy
 
-    def attack(self, enemy, attack):
-        enemy.health -= self.stats["Attack Power"]
-        print(f'{enemy.name} took {attack} damage from your.')
-
-    def receive_damage(self, enemy):
-        self.health -= enemy.stats["Attack Power"]
+    def attack(self, player):
+        player.stats["Health"] -= self.stats["Attack Power"]
+        print(f'{self.name} delivered {self.stats["Attack Power"]} damage to {player.name} with {self.attack_choice}.')
+        self.attack_choice = ''
+    # can probably take this out
+    # def receive_damage(self, enemy):
+    #     self.health -= enemy.stats["Attack Power"]
 
     def choose_attack_methods(self):
         if self.is_enemy == True:
@@ -28,7 +29,8 @@ class Character:
                     print(f"{n} : {attack}")
                     n += 1
                 user_input = abs(int(input("Choose an attack by its number :")))
-            print(self.stats["Attacks"][user_input])
+            print("You chose " + self.stats["Attacks"][user_input] + ".")
+            self.attack_choice = self.stats["Attacks"][user_input]
     def display_defeat (self):
         pass
 
