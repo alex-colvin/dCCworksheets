@@ -3,7 +3,7 @@ from random import Random
 class Character:
     def __init__(self, name, attack_power, attacks, defeat, is_enemy, health=100, ): 
         self.name = name
-        self.stats {"Health": health, "Attack Power": attack_power, "Attacks": attacks}
+        self.stats = {"Health": health, "Attack Power": attack_power, "Attacks": attacks}
         self.attacks = [attacks]
         self.attack = ''
         self.defeat_ver = defeat
@@ -20,9 +20,15 @@ class Character:
         if self.is_enemy == True:
             self.attack = Random.choice(self.attacks)
         else:
-            print(self.attacks)
-            self.attack = input('Which attack would you like to use?')
-
+            user_input=100
+            max_attacks = (len(self.stats["Attacks"]) - 1)
+            while user_input > max_attacks:
+                n = 0
+                for attack in self.stats["Attacks"]:
+                    print(f"{n} : {attack}")
+                    n += 1
+                user_input = abs(int(input("Choose an attack by its number :")))
+            print(self.stats["Attacks"][user_input])
     def display_defeat (self):
         pass
 
@@ -32,4 +38,6 @@ class Character:
     def heal():
         pass
     def play_turn(self):
+        pass
+    def block(self):
         pass

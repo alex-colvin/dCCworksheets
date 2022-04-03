@@ -1,15 +1,15 @@
 from character import Character
 narrator = Character("narrator", 100, 0, False, 100)
 print("You are Hercules, the greatest of the Greek Heroes! You have just completed your quest to Hades to retrieve the elusive Emerald of Enchantment, stolen by the two-headed slimy slithering serpent Segra. After weeks in sweltering sulfur filled caverns, you return home only to find out that you have been tasked by King Eurystheus to slay the vicious Nemean Lion, defeat the impossible nine-headed Lernaean Hydra, and capture the guard dog of the underworld—Cerberus. While you were away, these three villains laid seige to the city, kidnapped the fair maiden Heleneus, and stole the orb of tranquility from the Kings underground vault.")
-hercules_attacks = ["THUNDER STOMP", "BLOCK", "POWER PUNCH", "HERCULEAN HEADBUTT"]
-nemean_attacks = {"SCRATCH", "BITE", "ROAR"}
-hydra_attacks = {"WATER JET", "TAIL WHIP", "NINE HEADED BITE"}
+hercules_attacks = ["THUNDER STOMP", "POWER PUNCH", "HERCULEAN HEADBUTT"]
+nemean_attacks = ["SCRATCH", "BITE", "ROAR"]
+#hydra_attacks = ["WATER JET", "TAIL WHIP", "NINE HEADED BITE"]
 # maybe add function to block or telegraph moves...nine headed bite could strike as  nine 5 pts attacks
-cerberus_attacks = {"TRIPLE BITE": 25, "SCRATCH": 25, "HOWL FROM HADES": 60}
+cerberus_attacks = ["TRIPLE BITE", "SCRATCH", "HOWL FROM HADES"]
 hercules = Character("Hercules", 10, hercules_attacks, 'defeated', False)
 nemean_lion = Character("Nemean Lion", 10, nemean_attacks, 'slayed', True, 30)
-lernaean_hydra = {"Lernaean Hydra", 20, hydra_attacks, 'defeated, True', 50}
-print('n')
+#lernaean_hydra = {"Lernaean Hydra", 20, hydra_attacks, 'defeated, True', 50}
+hercules.choose_attack_methods()
 
 
 
