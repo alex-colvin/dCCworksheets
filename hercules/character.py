@@ -3,27 +3,25 @@ from random import Random
 class Character:
     def __init__(self, name, attack_power, attacks, defeat, is_enemy, health=100, ): 
         self.name = name
-        self.health = health
-        self.attack_power = attack_power
-        self.attacks = attacks
+        self.stats {"Health": health, "Attack Power": attack_power, "Attacks": attacks}
+        self.attacks = [attacks]
         self.attack = ''
         self.defeat_ver = defeat
         self.is_enemy = is_enemy
 
     def attack(self, enemy, attack):
-        enemy.health -= self.attack_power
+        enemy.health -= self.stats["Attack Power"]
         print(f'{enemy.name} took {attack} damage from your.')
 
     def receive_damage(self, enemy):
-        self.health -= enemy.attack_power
+        self.health -= enemy.stats["Attack Power"]
 
     def choose_attack_methods(self):
         if self.is_enemy == True:
             self.attack = Random.choice(self.attacks)
         else:
             print(self.attacks)
-            user_input = input('Which attack would you like to use?')
-        return user_input
+            self.attack = input('Which attack would you like to use?')
 
     def display_defeat (self):
         pass
@@ -33,4 +31,5 @@ class Character:
 
     def heal():
         pass
-
+    def play_turn(self):
+        pass

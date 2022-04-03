@@ -6,3 +6,4 @@ class Attack:
         pass
     def calculate_damage_effectiveness():
         pass
+#still not sure if i'm going to use this
